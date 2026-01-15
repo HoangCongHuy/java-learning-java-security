@@ -1,4 +1,4 @@
-package com.examplecodewithhuy.javasecurity;
+package com.examplecodewithhuy.javasecurity.model;
 
 public class Student {
     private String name;
@@ -23,8 +23,5 @@ public class Student {
     public void setId(int id) {
         this.id = id;
     }
-
-
-
 
 }

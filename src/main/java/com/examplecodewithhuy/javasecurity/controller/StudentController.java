@@ -1,7 +1,7 @@
-package com.examplecodewithhuy.javasecurity;
+package com.examplecodewithhuy.javasecurity.controller;
 
+import com.examplecodewithhuy.javasecurity.model.Student;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
