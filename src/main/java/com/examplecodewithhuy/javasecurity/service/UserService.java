@@ -20,6 +20,8 @@ public class UserService implements org.springframework.security.core.userdetail
     @Autowired
     @Lazy
     private AuthenticationManager authenticationManager;
+    @Autowired
+    JWTService jwtService;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -36,13 +38,13 @@ public class UserService implements org.springframework.security.core.userdetail
         return userRepository.save(user);
     }
 
-    public boolean verify(User user) {
+    public String verify(User user) {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
 
         if (authentication.isAuthenticated()) {
-            return true;
+            return jwtService.generateToken(user.getUsername());
         }
 
-        return false;
+        return null;
     }
 }

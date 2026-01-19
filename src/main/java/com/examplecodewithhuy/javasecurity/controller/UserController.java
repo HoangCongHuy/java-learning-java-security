@@ -20,11 +20,11 @@ public class UserController {
 
     @PostMapping("/login")
     public String login(@RequestBody User user) {
-        System.out.println(user);
-        if (userService.verify(user)) {
-            return "Success";
+        String token = userService.verify(user);
+        if (token != null) {
+            return token;
         }
 
-        return "Fail";
+        return null;
     }
 }
